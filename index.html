@@ -85,9 +85,10 @@
           <div class="card-footer text-muted">
             <button class="btn btn-primary"  type="submit" onclick="addStudent()">Guardar</button>
           </div>
-        </div>
-
+        </div>  
       </div>
+      <hr>
+
       <div class="container p-5">
         <div class="card mx-5">
           <div class="card-header">Datos del Docente</div>
@@ -137,10 +138,7 @@
                 <div class="mb-3">
                   <label for="area" class="form-label">Area</label>
                   <select class="form-select form-select-sm" name="area" id="area">
-                    <option selected>Selecione uno</option>
-                    <option value="Base de datos">Base de Datos</option>
-                    <option value="Programacion Visual">Programacion Visual</option>
-                    <option value="Diseño de Interfaces">Diseño de Interfaces</option>
+                    
                   </select>
                 </div>
               </div>
@@ -195,6 +193,34 @@
         </div>
 
       </div>
+      <div class="container p-5">
+        <div class="card mx-5">
+          <div class="card-header">libro de Calificaciones</div>
+          <div class="card-body">
+            <form action="">
+              <div>
+                <label class="fw-semibold" for="value_gradebook">Valor:</label>
+                <input class="form-control my-3" type="text" id="value_gradebook" name="value_gradebook" placeholder="100%"/>
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Curso</label>
+                <select class="form-select form-select-lg" name="course-gradebook" id="course-gradebook">
+                </select>
+              </div>
+              <div class="mb-3">
+                <label for="" class="form-label">Actividad</label>
+                <select class="form-select form-select-lg" name="activity-gradebook" id="activity-gradebook">
+                </select>
+              </div>
+              <div>
+                <label class="fw-semibold" for="maximun_gradebook">Nota Maxima:</label>
+                <input class="form-control my-3" type="text" id="maximun_gradebook" name="maximun_gradebook" placeholder="100"/>
+              </div>
+          <div class="card-footer text-muted">
+            <button class="btn btn-primary"  type="submit" onclick="addGradeBookSetup()">Guardar</button>
+          </div>
+        </div>
+
     </main>
     <footer>
       <!-- place footer here -->

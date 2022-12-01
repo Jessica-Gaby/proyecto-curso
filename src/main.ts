@@ -1,8 +1,25 @@
 import { Student } from "./entities/student";
 import { Teacher } from "./entities/teacher";
+import { GradeBookSetup } from "./entities/gradeBookSeutp";
 
 
 let students: Student[] = [];
+let teachers: Teacher[] = [];
+let activities : activity [] = [];
+//let courses : course [] = [];
+let gradesBook : GradeBookSetup  []=[];
+
+enum Course{
+    Programacion = "Programacion Visual",
+    BaseDatos = " Base de Datos",
+    Metodologias = "Metodologias",
+}
+
+enum Area{
+    Desarrolo = "Desarrrollo de software",
+    Marketing = " Marketing",
+    Turismo = "turismo",
+}
 
 function addStudent():void{
 
@@ -16,9 +33,9 @@ function addStudent():void{
         carrerLevel: parseInt(readFromHtml("carrerLevel")),
     }
     students.push(currentStudent);
-    console.log(students);
+    console.table(students);
 };
-let teachers: Teacher[] = [];
+
 
 function addTeacher(){
 
@@ -32,10 +49,9 @@ function addTeacher(){
         area: readFromHtml("area"),
     }
     teachers.push(currentTeacher);
-    console.log(teachers);
+    console.table(teachers);
 };
 
-let activities : activity [] = [];
 
 function addactivities (){
 
@@ -45,11 +61,11 @@ function addactivities (){
 
     }
     activities.push(currentActivity);
-    console.log(activities);
+    console.table(activities);
 };
-let courses : course [] = [];
 
-function addcourses (){
+
+/*function addcourses (){
 
     let currentCourse :course = {
          name_courses : readFromHtml("name_courses"),
@@ -57,10 +73,58 @@ function addcourses (){
          parallel : readFromHtml("parallel")
     }
     courses.push(currentCourse);
-    console.log(courses);
-};
+    console.table(courses);
+};*/
+
+
+
+function addGradeBookSetup():void{
+
+    let currentGrade : GradeBookSetup = {
+        value: readFromHtml("value_gradebook"),
+        course:readFromHtml("course-gradebook"),
+        activity: readFromHtml("activity-gradebook"),
+        maximunGrade: parseInt(readFromHtml("maximun_gradebook")),
+        
+    }
+    gradesBook.push(currentGrade);
+    console.table(gradesBook);
+    
+}
+
+function initCourse():void{
+   let courseGradebook=document.getElementById("course-gradebook") as HTMLSelectElement;
+
+   let courses =Object.values(Course);
+   courses.forEach(
+    (value) => {
+        let option = document.createElement("option");
+        option.value = value;
+        option.text = value,
+        courseGradebook.add(option);
+    }
+   )
+}
+
+initCourse();
+
+function initArea():void{
+    let area=document.getElementById("area") as HTMLSelectElement;
+ 
+    let areas =Object.values(Area);
+    areas.forEach(
+     (value) => {
+         let option = document.createElement("option");
+         option.value = value;
+         option.text = value,
+         area.add(option);
+     }
+    )
+ }
+ initArea();
 
 function readFromHtml(id:string):string{
     return (<HTMLInputElement>document.getElementById(id)).value;
 
 }
+
